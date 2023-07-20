@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no />
     <meta name="description"
         content="Directeur Administratif et Financier de Sogea Satom, filiale de Vinci Construction." />
-    <meta property='og:url' content='https://' />
+    <meta property='og:url' content='https://sewamensah.fr/' />
     <meta property='og:type' content='article' />
-    <meta property='og:image' content='#' />
-    <meta name="author" content="Sewa Mensah" />
+    <meta property='og:image' content='http://sewamensah.fr/assets/img/profile_1.jpeg' />
+    <meta name="author" content="Sewa MENSAH" />
     <meta property='og:locale' content='fr_FR' />
-    <title>Sewa Mensah</title>
+    <title>Sewa MENSAH</title>
     <!-- <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" /> -->
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,49 +19,20 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
         type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/web/pdf_viewer.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/web/pdf_viewer.min.css"
+        rel="stylesheet" type="text/css" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <style>
-        .comment {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .comment .date {
-            font-style: italic;
-            font-size: 12px;
-            color: #888;
-        }
-
-        .pagination {
-            margin-top: 20px;
-        }
-
-        .pagination a {
-            display: inline-block;
-            margin-right: 5px;
-            padding: 5px;
-            text-decoration: none;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .pagination a.active {
-            background-color: #ccc;
-        }
-    </style>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/customize.css" type="text/css" />
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="background-color: #dbc2a3 !important;">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Clarence Taylor</span>
+            <span class="d-block d-lg-none">Sewa MENSAH</span>
             <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -80,7 +51,7 @@
         </div>
     </nav>
     <!-- Page Content-->
-    <div class="container">
+    <div class="container p-0">
         <!-- Biographie-->
         <section class="resume-section" id="biographie">
             <div class="resume-section-content">
@@ -89,7 +60,7 @@
                         <img src="assets/img/profile_1.jpeg" alt="" class="img-fluid img-profile">
                     </div>
                     <div class="col-md-6">
-                        <h1 class="mb-0">
+                        <h1 class="mb-0 text-white">
                             Sewa Mensah
                         </h1>
                         <div class="subheading mb-5">
@@ -170,25 +141,30 @@
             </div>
         </section>
         <hr class="m-0" />
-        <!-- Faire part-->
+        <!-- Faire part -->
         <section class="resume-section" id="fairepart">
-            <!-- Faire part -->
-            <section class="resume-section" id="fairepart">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Faire part </h2>
-                    <p>
-                        Lire l'aperçu du faire-part des obsèques :
-                        <button class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#pdfPreviewModal">Aperçu</button>
-
-                        Télécharger le faire-part des obsèques :
-                        <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" class="btn btn-primary"
-                            download>Télécharger</a>
-                    </p>
+            <div class="resume-section-content">
+                <h2 class="mb-5">Faire-part </h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="assets/img/faire_part_i.jpeg" class="img-fluid" alt="faire part monsieur Sewa">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <p class="fs-4 fw-bold">
+                                Lire et télécharger le faire-part des obsèques en cliquant sur les boutons ci-dessous
+                            </p>
+                            
+                            <button class="btn" id="apercu"data-bs-toggle="modal"
+                                data-bs-target="#pdfPreviewModal"> <i class="fas fa-eye"></i>Aperçu</button>
+                            
+        
+                            <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" id="telecharger"class="btn"
+                                download><i class="fas fa-download"></i>Télécharger</a>
+                        </p>
+                    </div>
                 </div>
-            </section>
-
-
+            </div>
         </section>
         <hr class="m-0" />
 
@@ -196,6 +172,9 @@
         <section class="resume-section" id="commentaires">
             <div class="resume-section-content">
                 <h2 class="mb-5">Hommages et condoléances</h2>
+                <p>
+
+                </p>
                 <div id="comment-success" style="display: none;"></div>
                 <form id="comment-form" action="save-comment.php" method="POST">
                     <div class="mb-3">
@@ -227,12 +206,12 @@
         <!-- Remerciements-->
         <section class="resume-section" id="remerciements">
             <div class="resume-section-content">
-                <h2 class="mb-5">Remerciements</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5 fs-3">
+                <h2 class="mb-5 text-white">Remerciements</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5 fs-4">
                     <p>
-                        À jamais dans nos cœurs.
-                        Nous vous remercions sincèrement pour toutes vos marques d’affection et
-                        sympathie témoignées lors du rappel à Dieu de notre père, Sewa.
+                        A jamais dans nos cœurs. 
+                        Nous vous remercions sincèrement pour toutes vos marques d’affection et 
+                        sympathie témoignées lors du rappel à Dieu de notre frère, oncle, mari, père et ami Sewa. 
                         <br />
                         <br />
                         <strong>La Famille de Sewa.</strong>
@@ -243,8 +222,7 @@
         </section>
         <hr class="m-0" />
     </div>
-    <!-- <h4>mon canvas</h4>
-    <canvas id="pdfCanvas" style="max-width: 100%;"></canvas> -->
+   
     <!-- Modal -->
     <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
         aria-hidden="true">
@@ -394,11 +372,8 @@
             }
 
             // var canvasContainer = document.getElementById("pdfCanvas");
-            // renderPDF("assets/docs/demo.pdf", canvasContainer);
             renderPDF("assets/docs/Faire_part_Sewa_MENSAH.pdf");
-            // When the modal is shown, load and render the PDF
-            // $("#pdfPreviewModal").on("shown.bs.modal", function () {
-            // });
+            
 
         });
     </script>
