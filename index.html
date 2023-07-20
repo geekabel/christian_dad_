@@ -19,8 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
         type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Add PDF.js for PDF rendering -->
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/web/pdf_viewer.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <style>
@@ -171,45 +172,23 @@
         <hr class="m-0" />
         <!-- Faire part-->
         <section class="resume-section" id="fairepart">
-            <!-- Modal -->
-            <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="pdfPreviewModalLabel">Aperçu du faire-part des obsèques</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Add a canvas to render the PDF -->
-                            <canvas id="pdfCanvas" style="max-width: 100%;"></canvas>
-                        </div>
-                    </div>
+            <!-- Faire part -->
+            <section class="resume-section" id="fairepart">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Faire part </h2>
+                    <p>
+                        Lire l'aperçu du faire-part des obsèques :
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#pdfPreviewModal">Aperçu</button>
+
+                        Télécharger le faire-part des obsèques :
+                        <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" class="btn btn-primary"
+                            download>Télécharger</a>
+                    </p>
                 </div>
-            </div>
+            </section>
 
 
-            <div class="resume-section-content">
-                <h2 class="mb-5">Faire part </h2>
-                <p>
-                    <!-- Button to trigger the preview modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#previewModal">
-                        Preview Funeral Announcement
-                    </button>
-                    <!-- Button to download the funeral announcement -->
-                    <a href="#" class="btn btn-secondary" download="funeral_announcement.pdf">Download Funeral
-                        Announcement</a>
-                </p>
-                <!-- <p class="fs-4">
-                    Lire et télécharger le faire-part des obsèques en cliquant sur les boutons ci-dessous
-                </p>
-                <div class="buttons mt-3">
-                    <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" target="_blank" class="btn btn-primary"><i
-                            class="fas fa-eye"></i> Lire le faire-part</a>
-                    <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" download class="btn btn-success"><i
-                            class="fas fa-download"></i> Télécharger le faire-part</a>
-                </div>
-            </div> -->
         </section>
         <hr class="m-0" />
 
@@ -264,11 +243,33 @@
         </section>
         <hr class="m-0" />
     </div>
+    <!-- <h4>mon canvas</h4>
+    <canvas id="pdfCanvas" style="max-width: 100%;"></canvas> -->
+    <!-- Modal -->
+    <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pdfPreviewModalLabel">Aperçu du faire-part des obsèques</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Add a canvas to render the PDF -->
+                    <canvas id="pdfCanvas" style="max-width: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Add PDF.js for PDF rendering -->
+    <!-- <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/build/pdf.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#comment-form').submit(function (e) {
@@ -288,7 +289,7 @@
                             // Afficher le message de succès
                             $('#comment-success').text(data.message).addClass('text-success').show();
                             // getComments();
-                            comments.pu(data.comment);
+                            comments.push(data.comment);
                             // Rendre à nouveau la liste des commentaires
                             renderComments();
                             // Mettre à jour la pagination
@@ -366,17 +367,40 @@
             }
             getComments();
 
-            // Function to handle downloading the funeral announcement
-            $(".btn-secondary").click(function () {
-                var downloadLink = document.createElement("a");
-                downloadLink.href = "path_to_funeral_announcement.pdf"; // Replace "path_to_funeral_announcement.pdf" with the actual path to the PDF file
-                downloadLink.download = "funeral_announcement.pdf";
-                downloadLink.click();
-            });
+            // Function to load and render the PDF
+            function renderPDF(url) {
+                // Asynchronous download of PDF
+                pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
+                    // console.log("This file was " + pdfDoc._pdfInfo.numPages + " pages");
+                    // Fetch the first page
+                    pdfDoc.getPage(1).then(function (page) {
+                        var viewport = page.getViewport({ scale: 1 });
+                        // var canvas = document.createElement("canvas");
+                        var canvas = document.getElementById("pdfCanvas");
+                        canvas.style.display = "block";
+                        var context = canvas.getContext("2d");
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        // canvasContainer.appendChild(canvas);
+
+                        // Render the page
+                        var renderContext = {
+                            canvasContext: context,
+                            viewport: viewport,
+                        };
+                        page.render(renderContext);
+                    });
+                });
+            }
+
+            // var canvasContainer = document.getElementById("pdfCanvas");
+            // renderPDF("assets/docs/demo.pdf", canvasContainer);
+            renderPDF("assets/docs/Faire_part_Sewa_MENSAH.pdf");
+            // When the modal is shown, load and render the PDF
+            // $("#pdfPreviewModal").on("shown.bs.modal", function () {
+            // });
 
         });
-
-
     </script>
 
 </body>
