@@ -75,7 +75,7 @@ $comments[] = $comment;
 file_put_contents($commentsFile, json_encode($comments));
 
 // Envoyer une réponse JSON indiquant le succès de l'enregistrement
-$response = array('success' => true, 'message' => 'Commentaire enregistré avec succès');
+$response = array('success' => true, 'message' => 'Votre message d\'hommage enregistré avec succès');
 echo json_encode($response);
 
 
