@@ -7,7 +7,7 @@
 
 .comment .date {
     font-style: italic;
-    font-size: 12px;
+    font-size: 13px;
     color: #888;
 }
 
@@ -28,11 +28,30 @@
     background-color: #ccc;
 }
 
+canvas {
+    margin: 0 auto;
+    display: block;
+}
+
 #biographie, #remerciements {
     background-color: #035A7D;
     color: white;
 }
-#apercu, #telecharger {
+#apercu, #telecharger,.hommages_condoleances {
     background-color: #dbc2a3;
     color: white;
+}
+
+.text-white h2 {
+    margin-bottom: 0;
+}
+
+.hr-custom {
+    border-top: 5px solid white;
+    margin: 5px 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
 }

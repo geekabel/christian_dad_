@@ -4,15 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no />
-    <meta name="description"
-        content="Directeur Administratif et Financier de Sogea Satom, filiale de Vinci Construction." />
+    <meta name="description" content="Directeur Administratif et Financier de Sogea Satom, filiale de Vinci Construction." />
     <meta property='og:url' content='https://sewamensah.fr/' />
     <meta property='og:type' content='article' />
-    <meta property='og:image' content='http://sewamensah.fr/assets/img/profile_1.jpeg' />
+    <meta property='og:image' content='https://sewamensah.fr/assets/img/profile_1.jpeg' />
     <meta name="author" content="Sewa MENSAH" />
     <meta property='og:locale' content='fr_FR' />
     <title>Sewa MENSAH</title>
-    <!-- <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" /> -->
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -29,8 +27,23 @@
 </head>
 
 <body id="page-top">
+
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="background-color: #dbc2a3 !important;">
+
+        <div class="d-none d-lg-block">
+            <h2 class="text-white">
+                <span>Sewa</span>
+                <br />
+                <strong>MENSAH</strong>
+            </h2>
+            <hr class="border-primary hr-custom" />
+            <div class="d-flex row justify-content-center align-items-center text-white">
+                <div class="col-md-12 justify-content-between content">
+                    <i>1</i><i>9</i><i>5</i><i>9</i><i>-</i><i>2</i><i>0</i><i>2</i><i>3</i>
+                </div>
+            </div>
+        </div>
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Sewa MENSAH</span>
             <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
@@ -41,12 +54,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#biographie">Biographie</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#fairepart">faire part</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#fairepart">faire-part</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#commentaires">Hommages et
-                        condoléances</a></li>
+                        Condoléances</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#remerciements">Remerciements</a></li>
-                <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li> -->
             </ul>
         </div>
     </nav>
@@ -59,14 +70,14 @@
                     <div class="col-md-6">
                         <img src="assets/img/profile_1.jpeg" alt="" class="img-fluid img-profile">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-3">
                         <h1 class="mb-0 text-white">
                             Sewa Mensah
                         </h1>
                         <div class="subheading mb-5">
                             Directeur Administratif et Financier de Sogea Satom,
                             <br />
-                            filiale de Vinci Construction.
+                            filiale de Vinci Construction, à la retraite
                             <br />
                             Décédé le 6 juillet 2023.
                         </div>
@@ -151,16 +162,16 @@
                     </div>
                     <div class="col-md-6">
                         <p>
-                            <p class="fs-4 fw-bold">
-                                Lire et télécharger le faire-part des obsèques en cliquant sur les boutons ci-dessous
-                            </p>
-                            
-                            <button class="btn" id="apercu"data-bs-toggle="modal"
-                                data-bs-target="#pdfPreviewModal"> <i class="fas fa-eye"></i>Aperçu</button>
-                            
-        
-                            <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" id="telecharger"class="btn"
-                                download><i class="fas fa-download"></i>Télécharger</a>
+                        <p class="fs-4 fw-bold">
+                            Lire et télécharger le faire-part des obsèques en cliquant sur les boutons ci-dessous
+                        </p>
+
+                        <button class="btn" id="apercu" data-bs-toggle="modal" data-bs-target="#pdfPreviewModal"> <i
+                                class="fas fa-eye"></i>Aperçu</button>
+
+
+                        <a href="assets/docs/Faire_part_Sewa_MENSAH.pdf" id="telecharger" class="btn" download><i
+                                class="fas fa-download"></i>Télécharger</a>
                         </p>
                     </div>
                 </div>
@@ -173,7 +184,7 @@
             <div class="resume-section-content">
                 <h2 class="mb-5">Hommages et condoléances</h2>
                 <p>
-
+                    Veuillez y laisser vos messages d'hommages et de condoléances ici.
                 </p>
                 <div id="comment-success" style="display: none;"></div>
                 <form id="comment-form" action="save-comment.php" method="POST">
@@ -193,7 +204,7 @@
                         <label for="message" class="form-label">Message*</label>
                         <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary float-end">Envoyer</button>
+                    <button type="submit" class="btn  hommages_condoleances float-end">Envoyer</button>
                 </form>
                 <div class="mt-5">
                     <br />
@@ -209,9 +220,10 @@
                 <h2 class="mb-5 text-white">Remerciements</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5 fs-4">
                     <p>
-                        A jamais dans nos cœurs. 
-                        Nous vous remercions sincèrement pour toutes vos marques d’affection et 
-                        sympathie témoignées lors du rappel à Dieu de notre frère, oncle, mari, père et ami Sewa. 
+                        A jamais dans nos cœurs.
+                        <br />
+                        Nous vous remercions sincèrement pour toutes vos marques d’affection et
+                        sympathie témoignées lors du rappel à Dieu de notre frère, oncle, mari, père et ami Sewa.
                         <br />
                         <br />
                         <strong>La Famille de Sewa.</strong>
@@ -222,7 +234,7 @@
         </section>
         <hr class="m-0" />
     </div>
-   
+
     <!-- Modal -->
     <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
         aria-hidden="true">
@@ -233,6 +245,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div id="holder"></div>
                     <!-- Add a canvas to render the PDF -->
                     <canvas id="pdfCanvas" style="max-width: 100%;"></canvas>
                 </div>
@@ -241,12 +254,12 @@
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Add PDF.js for PDF rendering -->
     <!-- <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/build/pdf.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -349,14 +362,17 @@
             function renderPDF(url) {
                 // Asynchronous download of PDF
                 pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
-                    // console.log("This file was " + pdfDoc._pdfInfo.numPages + " pages");
+                    // console.log("This file has " + pdfDoc._pdfInfo.numPages + " pages");
+                    const numPages = pdfDoc.numPages;
+                    console.log(numPages);
+
                     // Fetch the first page
                     pdfDoc.getPage(1).then(function (page) {
-                        var viewport = page.getViewport({ scale: 1 });
+                        let viewport = page.getViewport({ scale: 1 });
                         // var canvas = document.createElement("canvas");
-                        var canvas = document.getElementById("pdfCanvas");
+                        let canvas = document.getElementById("pdfCanvas");
                         canvas.style.display = "block";
-                        var context = canvas.getContext("2d");
+                        let context = canvas.getContext("2d");
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;
                         // canvasContainer.appendChild(canvas);
@@ -370,11 +386,7 @@
                     });
                 });
             }
-
-            // var canvasContainer = document.getElementById("pdfCanvas");
             renderPDF("assets/docs/Faire_part_Sewa_MENSAH.pdf");
-            
-
         });
     </script>
 
