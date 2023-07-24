@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no />
-    <meta name="description" content="Directeur Administratif et Financier de Sogea Satom, filiale de Vinci Construction." />
+    <meta name="description"
+        content="Directeur Administratif et Financier de Sogea Satom, filiale de Vinci Construction." />
     <meta property='og:url' content='https://sewamensah.fr/' />
     <meta property='og:type' content='article' />
     <meta property='og:image' content='https://sewamensah.fr/assets/img/profile_1.jpeg' />
@@ -23,12 +24,15 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/customize.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
 </head>
 
 <body id="page-top">
 
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="background-color: #dbc2a3 !important;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav"
+        style="background-color: #dbc2a3 !important;">
 
         <div class="d-none d-lg-block">
             <h2 class="text-white">
@@ -53,6 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#biographie">Biographie</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#photosobseque"></a>Photos obsèques</li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#fairepart">faire-part</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#commentaires">Hommages et
                         Condoléances</a></li>
@@ -231,163 +236,36 @@
                 </div>
             </div>
         </section>
-        <hr class="m-0" />
-    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pdfPreviewModalLabel">Aperçu du faire-part des obsèques</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="holder"></div>
-                    <!-- Add a canvas to render the PDF -->
-                    <canvas id="pdfCanvas" style="max-width: 100%;"></canvas>
+        <!-- Modal -->
+        <div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="pdfPreviewModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pdfPreviewModalLabel">Aperçu du faire-part des obsèques</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="holder"></div>
+                        <!-- Add a canvas to render the PDF -->
+                        <canvas id="pdfCanvas" style="max-width: 100%;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- End Modal -->
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Add PDF.js for PDF rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/build/pdf.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <script src="js/main.js"></script>
-    <!-- <script>
-        $(document).ready(function () {
-            $('#comment-form').submit(function (e) {
-                e.preventDefault();
-                let formData = $(this).serialize();
-                $.ajax({
-                    type: 'POST',
-                    url: 'save-comment.php', // URL to save the comment
-                    data: formData,
-                    success: function (response) {
-                        console.log(response);
-                        // Handle success response
-                        let data = JSON.parse(response);
-                        if (data.success) {
-                            // Réinitialiser les champs du formulaire
-                            $('#comment-form')[0].reset();
-                            // Afficher le message de succès
-                            $('#comment-success').text(data.message).addClass('text-success').show();
-                            // getComments();
-                            comments.push(data.comment);
-                            // Rendre à nouveau la liste des commentaires
-                            renderComments();
-                            // Mettre à jour la pagination
-                            renderPagination();
-                        } else {
-                            // Afficher les erreurs de validation
-                            let errors = data.errors;
-                            let errorText = '';
-                            for (let i = 0; i < errors.length; i++) {
-                                errorText += '<p>' + errors[i] + '</p>';
-                            }
-                            $('#comment-success').html(errorText).removeClass('text-success').addClass('text-danger').show();
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        // Handle error
-                        console.log(xhr, status, error);
-                    }
-                });
-            });
-
-            var currentPage = 1;
-            var commentsPerPage = 3;
-            var comments = [];
-
-            function getComments() {
-                $.getJSON('comments.json', function (data) {
-                    comments = data;
-                    renderComments();
-                    renderPagination();
-                });
-            }
-
-            function renderComments() {
-                let startIndex = (currentPage - 1) * commentsPerPage;
-                let endIndex = startIndex + commentsPerPage;
-                let commentList = $('#comment-list');
-                commentList.empty();
-
-                for (let i = startIndex; i < endIndex && i < comments.length; i++) {
-                    let comment = comments[i];
-                    let commentHtml = `
-                            <div class="comment">
-                                <p>${comment.message}</p>
-                                <p>${comment.nom}  ${comment.prenom}</p>
-                                <p class="date">${comment.lieu},${comment.date}</p>
-                            </div>
-                        `;
-                    commentList.append(commentHtml);
-                }
-            }
-
-            function renderPagination() {
-                let totalPages = Math.ceil(comments.length / commentsPerPage);
-                let pagination = $('#pagination');
-                pagination.empty();
-
-                for (let i = 1; i <= totalPages; i++) {
-                    let pageLink = $('<a>', {
-                        href: '#',
-                        text: i,
-                        class: currentPage === i ? 'active' : '',
-                        'data-page': i
-                    });
-
-                    pageLink.click(function (e) {
-                        e.preventDefault();
-                        currentPage = parseInt($(this).data('page'));
-                        renderComments();
-                        renderPagination();
-                    });
-
-                    pagination.append(pageLink);
-                }
-            }
-            getComments();
-
-            // Function to load and render the PDF
-            function renderPDF(url) {
-                // Asynchronous download of PDF
-                pdfjsLib.getDocument(url).promise.then(function (pdfDoc) {
-                    // console.log("This file has " + pdfDoc._pdfInfo.numPages + " pages");
-                    const numPages = pdfDoc.numPages;
-                    console.log(numPages);
-
-                    // Fetch the first page
-                    pdfDoc.getPage(1).then(function (page) {
-                        let viewport = page.getViewport({ scale: 1 });
-                        // var canvas = document.createElement("canvas");
-                        let canvas = document.getElementById("pdfCanvas");
-                        canvas.style.display = "block";
-                        let context = canvas.getContext("2d");
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        // canvasContainer.appendChild(canvas);
-
-                        // Render the page
-                        var renderContext = {
-                            canvasContext: context,
-                            viewport: viewport,
-                        };
-                        page.render(renderContext);
-                    });
-                });
-            }
-            renderPDF("assets/docs/Faire_part_Sewa_MENSAH.pdf");
-        });
-    </script> -->
-
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/jquery-migrate-3.4.1.min.js"></script>
+        <script src="js/slick.min.js"></script>
+        <!-- Add PDF.js for PDF rendering -->
+        <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.8.162/build/pdf.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>

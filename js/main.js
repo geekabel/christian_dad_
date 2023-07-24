@@ -124,4 +124,46 @@ $(document).ready(function () {
         });
     }
     renderPDF("assets/docs/Faire_part_Sewa_MENSAH.pdf");
+
+     // Function to get image names from the server
+    function fetchImageNames(callback) {
+        $.ajax({
+            url: 'get_image_names.php', // Replace with the actual server-side script to get image names
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Call the callback function with the fetched image names
+                console.log(data);
+                callback(data);
+            },
+            error: function(error) {
+                console.error('Error fetching image names:', error);
+                // Call the callback function with an empty array in case of an error
+                callback([]);
+            }
+        });
+    }
+    var sliderContainer = $('.slider');
+    // Fetch image names dynamically and create the slider
+    fetchImageNames(function(imageNames) {
+        // Shuffle the array to display images randomly
+        imageNames.sort(function() { return 0.5 - Math.random() });
+
+        // Add the images to the slider
+        imageNames.forEach(function(imageName) {
+            let imageUrl = 'assets/img/' + imageName;
+            let slide = $('<div><img src="' + imageUrl + '" class="img-fluid" alt="photos obsèques"></div>');
+            sliderContainer.append(slide);
+        });
+
+        // Initialize the Slick Carousel
+        sliderContainer.slick({
+            dots: true, // Show dots for navigation
+            infinite: true, // Enable infinite loop
+            autoplay: true, // Enable autoplay
+            autoplaySpeed: 2000, // Set the autoplay speed (in milliseconds)
+            fade:true,
+            cssEase:'linear'
+        });
+    });
 });
