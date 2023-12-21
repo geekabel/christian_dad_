@@ -79,7 +79,7 @@ $(document).ready(function () {
             let pageLink = $('<a>', {
                 href: '#',
                 text: i,
-                class: currentPage === i ? 'active' : '',
+                class: currentPage === i ? 'active mx-2' : '',
                 'data-page': i
             });
 
